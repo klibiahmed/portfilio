@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Phone, Send } from 'lucide-react'
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,13 +9,59 @@ const Contact = () => {
     email: '',
     message: '',
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null) // 'success' or 'error'
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Add your form submission logic here
-    console.log('Form submitted:', formData)
-    alert('Thank you for your message! I will get back to you soon.')
-    setFormData({ name: '', email: '', message: '' })
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+
+    // EmailJS configuration
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+    console.log('EmailJS Config:', { serviceId, templateId, publicKey: publicKey ? 'Set' : 'Not set' })
+
+    // Check if EmailJS is configured
+    if (!serviceId || !templateId || !publicKey || 
+        serviceId.includes('your_') || templateId.includes('your_') || publicKey.includes('your_')) {
+      // Fallback to mailto if EmailJS is not configured
+      const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`)
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      )
+      window.location.href = `mailto:ahmedklibi10@gmail.com?subject=${subject}&body=${body}`
+      setIsSubmitting(false)
+      setSubmitStatus('success')
+      setFormData({ name: '', email: '', message: '' })
+      return
+    }
+
+    // Template parameters
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+      to_name: 'Ahmed Klibi',
+    }
+
+    emailjs
+      .send(serviceId, templateId, templateParams, publicKey)
+      .then(
+        (response) => {
+          console.log('Email sent successfully!', response.status, response.text)
+          setSubmitStatus('success')
+          setFormData({ name: '', email: '', message: '' })
+          setIsSubmitting(false)
+        },
+        (error) => {
+          console.error('Failed to send email:', error)
+          setSubmitStatus('error')
+          setIsSubmitting(false)
+        }
+      )
   }
 
   const handleChange = (e) => {
@@ -167,11 +214,24 @@ const Contact = () => {
                 />
               </div>
 
+              {submitStatus === 'success' && (
+                <div className="p-4 bg-green-500/20 border border-green-500 rounded-lg text-green-400 text-center">
+                  ✓ Message sent successfully! I'll get back to you soon.
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="p-4 bg-red-500/20 border border-red-500 rounded-lg text-red-400 text-center">
+                  ✗ Failed to send message. Please try again or email me directly.
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full px-8 py-3 bg-gradient-to-r from-primary-500 to-purple-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-primary-500/50 transition-all duration-300 flex items-center justify-center gap-2 group"
+                disabled={isSubmitting}
+                className="w-full px-8 py-3 bg-gradient-to-r from-primary-500 to-purple-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-primary-500/50 transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
                 <Send size={18} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </form>
