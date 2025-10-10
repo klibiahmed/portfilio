@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ahmed Klibi - Portfolio Website
 
 A modern, responsive portfolio website built with React, Vite, TailwindCSS, and Framer Motion.
@@ -138,3 +139,7 @@ Portfolio: [klibiahmed.me](https://klibiahmed.me)
 ---
 
 Made with ❤️ by Ahmed Klibi
+=======
+# portfilio
+My Portfolio
+>>>>>>> c491f06119f624519eb3af590221d4618335847c
