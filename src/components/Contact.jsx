@@ -22,23 +22,6 @@ const Contact = () => {
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
-    console.log('EmailJS Config:', { serviceId, templateId, publicKey: publicKey ? 'Set' : 'Not set' })
-
-    // Check if EmailJS is configured
-    if (!serviceId || !templateId || !publicKey || 
-        serviceId.includes('your_') || templateId.includes('your_') || publicKey.includes('your_')) {
-      // Fallback to mailto if EmailJS is not configured
-      const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`)
-      const body = encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-      )
-      window.location.href = `mailto:ahmedklibi10@gmail.com?subject=${subject}&body=${body}`
-      setIsSubmitting(false)
-      setSubmitStatus('success')
-      setFormData({ name: '', email: '', message: '' })
-      return
-    }
-
     // Template parameters
     const templateParams = {
       from_name: formData.name,
