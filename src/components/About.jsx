@@ -1,22 +1,25 @@
 import { motion } from 'framer-motion'
 import { Code2, Palette, Rocket } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const About = () => {
+  const { t } = useTranslation()
+  
   const features = [
     {
       icon: <Code2 size={32} />,
-      title: 'Clean Code',
-      description: 'Writing maintainable, scalable, and efficient code following best practices.',
+      title: t('about.cleanCode'),
+      description: t('about.cleanCodeDesc'),
     },
     {
       icon: <Palette size={32} />,
-      title: 'Modern Design',
-      description: 'Creating beautiful, intuitive interfaces with attention to detail and UX.',
+      title: t('about.modernDesign'),
+      description: t('about.modernDesignDesc'),
     },
     {
       icon: <Rocket size={32} />,
-      title: 'Fast Performance',
-      description: 'Optimizing applications for speed and delivering exceptional user experiences.',
+      title: t('about.fastPerformance'),
+      description: t('about.fastPerformanceDesc'),
     },
   ]
 
@@ -31,10 +34,10 @@ const About = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            About <span className="text-gradient">Me</span>
+            {t('about.title')} <span className="text-gradient">{t('about.titleHighlight')}</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Computer Science Student | UI/UX Designer | Microsoft ISIMA Club Member
+            {t('about.subtitle')}
           </p>
         </motion.div>
 
@@ -46,18 +49,15 @@ const About = () => {
             viewport={{ once: true }}
           >
             <div className="glass-effect rounded-2xl p-8">
-              <h3 className="text-2xl font-bold mb-4 text-gradient">My Journey</h3>
+              <h3 className="text-2xl font-bold mb-4 text-gradient">{t('about.journeyTitle')}</h3>
               <p className="text-gray-300 mb-4 leading-relaxed">
-                I'm a Computer Science student at ISIMA (Institut Supérieur d'Informatique) in Mahdia, Tunisia. 
-                As a Scrum Master and Full Stack Developer, I specialize in creating innovative web and mobile applications 
-                with a strong focus on UI/UX design and user experience.
+                {t('about.journey1')}
               </p>
               <p className="text-gray-300 mb-4 leading-relaxed">
-                Active member of the Microsoft ISIMA Club, I participate in hackathons and contribute to building 
-                a collaborative tech community. I'm passionate about problem-solving, teamwork, and continuous learning.
+                {t('about.journey2')}
               </p>
               <p className="text-gray-300 leading-relaxed">
-                When I'm not coding, you'll find me playing football or exploring new technologies and design trends.
+                {t('about.journey3')}
               </p>
             </div>
           </motion.div>

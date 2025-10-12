@@ -1,6 +1,8 @@
 import { Heart, Github, Linkedin, Twitter } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Footer = () => {
+  const { t } = useTranslation()
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
@@ -18,7 +20,7 @@ const Footer = () => {
               Klibi Ahmed
             </a>
             <p className="text-gray-400 text-sm flex items-center justify-center md:justify-start gap-1">
-              Made with <Heart size={16} className="text-red-500 fill-current" /> © {currentYear}
+              {t('footer.madeWith')} <Heart size={16} className="text-red-500 fill-current" /> © {currentYear}
             </p>
           </div>
 
@@ -41,13 +43,13 @@ const Footer = () => {
           {/* Quick Links */}
           <div className="flex gap-6 text-sm">
             <a href="#about" className="text-gray-400 hover:text-primary-400 transition-colors">
-              About
+              {t('footer.about')}
             </a>
             <a href="#projects" className="text-gray-400 hover:text-primary-400 transition-colors">
-              Projects
+              {t('footer.projects')}
             </a>
             <a href="#contact" className="text-gray-400 hover:text-primary-400 transition-colors">
-              Contact
+              {t('footer.contact')}
             </a>
           </div>
         </div>
@@ -55,7 +57,7 @@ const Footer = () => {
         {/* Bottom Text */}
         <div className="mt-8 pt-8 border-t border-white/5 text-center">
           <p className="text-gray-500 text-sm">
-            Designed & Built by Klibi Ahmed | klibiahmed.me
+            {t('footer.designedBy')}
           </p>
         </div>
       </div>

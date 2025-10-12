@@ -1,36 +1,38 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 const Skills = () => {
+  const { t } = useTranslation()
+  
   const skillCategories = [
     {
-      title: 'Frontend',
+      title: 'Web Development',
       skills: [
-        { name: 'React.js', level: 90 },
-        { name: 'Next.js', level: 85 },
-        { name: 'HTML/CSS', level: 95 },
-        { name: 'JavaScript', level: 90 },
-        { name: 'Tailwind CSS', level: 90 },
-        { name: 'React Native', level: 80 },
-      ],
+        { name: 'React.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+        { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
+        { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+        { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+        { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+        { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
+        { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+        { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
+      ]
     },
     {
-      title: 'Backend & Databases',
+      title: 'Mobile Development',
       skills: [
-        { name: 'Node.js/Express.js', level: 85 },
-        { name: 'Python', level: 80 },
-        { name: 'MongoDB', level: 85 },
-        { name: 'Firebase', level: 80 },
-      ],
+        { name: 'React Native', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+        { name: 'Firebase', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' },
+      ]
     },
     {
       title: 'Design & Tools',
       skills: [
-        { name: 'Figma', level: 90 },
-        { name: 'UI/UX Design', level: 85 },
-        { name: 'Adobe Photoshop', level: 80 },
-        { name: 'Power BI', level: 75 },
-      ],
-    },
+        { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+        { name: 'Photoshop', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg' },
+        { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+      ]
+    }
   ]
 
   return (
@@ -44,47 +46,82 @@ const Skills = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            My <span className="text-gradient">Skills</span>
+            {t('skills.title')} <span className="text-gradient">{t('skills.titleHighlight')}</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Technologies and tools I work with to bring ideas to life
+            {t('skills.subtitle')}
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {skillCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={categoryIndex}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-              viewport={{ once: true }}
-              className="glass-effect rounded-2xl p-8"
-            >
-              <h3 className="text-2xl font-bold mb-6 text-primary-400">
-                {category.title}
-              </h3>
-              <div className="space-y-6">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-gray-300 font-medium">{skill.name}</span>
-                      <span className="text-gray-400">{skill.level}%</span>
-                    </div>
-                    <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: categoryIndex * 0.1 + skillIndex * 0.1 }}
-                        viewport={{ once: true }}
-                        className="h-full bg-gradient-to-r from-primary-500 to-purple-500 rounded-full"
+        <div>
+          {/* Web and Mobile side by side */}
+          <div className="grid md:grid-cols-2 gap-8 mb-10">
+            {skillCategories.slice(0, 2).map((category, categoryIndex) => (
+              <motion.div
+                key={categoryIndex}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
+                viewport={{ once: true }}
+                className="border border-white/10 rounded-xl p-6 bg-white/5"
+              >
+                <h3 className="text-lg font-semibold mb-4 text-primary-400 text-center">
+                  {category.title}
+                </h3>
+                <div className="flex flex-wrap gap-3 justify-center">
+                  {category.skills.map((skill, skillIndex) => (
+                    <motion.div
+                      key={skillIndex}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: skillIndex * 0.05 }}
+                      viewport={{ once: true }}
+                      className="flex items-center gap-2 bg-white/5 rounded-lg px-3 py-2 hover:bg-white/10 transition-all duration-200"
+                    >
+                      <img 
+                        src={skill.icon} 
+                        alt={skill.name}
+                        className="w-5 h-5 object-contain"
                       />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+                      <span className="text-sm text-gray-300">{skill.name}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Design & Tools centered below */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mx-auto border border-white/10 rounded-xl p-6 bg-white/5"
+          >
+            <h3 className="text-lg font-semibold mb-4 text-primary-400 text-center">
+              {skillCategories[2].title}
+            </h3>
+            <div className="flex flex-wrap gap-3 justify-center">
+              {skillCategories[2].skills.map((skill, skillIndex) => (
+                <motion.div
+                  key={skillIndex}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: skillIndex * 0.05 }}
+                  viewport={{ once: true }}
+                  className="flex items-center gap-2 bg-white/5 rounded-lg px-3 py-2 hover:bg-white/10 transition-all duration-200"
+                >
+                  <img 
+                    src={skill.icon} 
+                    alt={skill.name}
+                    className="w-5 h-5 object-contain"
+                  />
+                  <span className="text-sm text-gray-300">{skill.name}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

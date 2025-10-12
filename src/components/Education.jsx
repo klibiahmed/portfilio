@@ -1,28 +1,31 @@
 import { motion } from 'framer-motion'
 import { GraduationCap, Calendar } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Education = () => {
+  const { t } = useTranslation()
+  
   const education = [
     {
-      degree: 'Licence en Informatique',
-      institution: 'Institut Supérieur d\'Informatique (ISIMA)',
-      location: 'Mahdia, Tunisia',
-      period: '2023 - 2025',
-      description: 'Computer Science degree with focus on software development, algorithms, and modern web technologies.',
+      degree: t('education.degree1'),
+      institution: t('education.institution1'),
+      location: t('education.location1'),
+      period: t('education.period1'),
+      description: t('education.description1'),
     },
     {
-      degree: 'Baccalauréat en Informatique',
-      institution: 'Lycée Mhamdia',
-      location: 'Mhamdia, Tunisia',
-      period: '2023',
-      description: 'High school diploma in Computer Science with strong foundation in programming and mathematics.',
+      degree: t('education.degree2'),
+      institution: t('education.institution2'),
+      location: t('education.location2'),
+      period: t('education.period2'),
+      description: t('education.description2'),
     },
   ]
 
   const languages = [
-    { name: 'Arabic', level: 'Native' },
-    { name: 'French', level: 'Fluent' },
-    { name: 'English', level: 'Intermediate' },
+    { name: t('education.arabic'), level: t('education.native') },
+    { name: t('education.french'), level: t('education.intermediate') },
+    { name: t('education.english'), level: t('education.intermediate') },
   ]
 
   return (
@@ -36,10 +39,10 @@ const Education = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Education & <span className="text-gradient">Languages</span>
+            {t('education.title')} <span className="text-gradient">{t('education.titleHighlight')}</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            My academic journey and language proficiency
+            {t('education.subtitle')}
           </p>
         </motion.div>
 
@@ -84,7 +87,7 @@ const Education = () => {
             viewport={{ once: true }}
             className="glass-effect rounded-2xl p-6"
           >
-            <h3 className="text-2xl font-bold mb-6 text-primary-400">Languages</h3>
+            <h3 className="text-2xl font-bold mb-6 text-primary-400">{t('education.languagesTitle')}</h3>
             <div className="space-y-4">
               {languages.map((lang, index) => (
                 <motion.div

@@ -2,8 +2,10 @@ import { motion } from 'framer-motion'
 import { Mail, MapPin, Phone, Send } from 'lucide-react'
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
+import { useTranslation } from 'react-i18next'
 
 const Contact = () => {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -57,20 +59,20 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <Mail size={24} />,
-      title: 'Email',
+      title: t('contact.email'),
       value: 'ahmedklibi10@gmail.com',
       link: 'mailto:ahmedklibi10@gmail.com',
     },
     {
       icon: <Phone size={24} />,
-      title: 'Website',
+      title: t('contact.website'),
       value: 'klibiahmed.me',
       link: 'https://klibiahmed.me',
     },
     {
       icon: <MapPin size={24} />,
-      title: 'Location',
-      value: 'Ben Arous, Tunisia',
+      title: t('contact.location'),
+      value: t('contact.locationValue'),
       link: null,
     },
   ]
@@ -86,10 +88,10 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Get In <span className="text-gradient">Touch</span>
+            {t('contact.title')} <span className="text-gradient">{t('contact.titleHighlight')}</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Have a project in mind? Let's work together to create something amazing
+            {t('contact.subtitle')}
           </p>
         </motion.div>
 
@@ -103,10 +105,9 @@ const Contact = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold mb-6">Let's Talk</h3>
+              <h3 className="text-2xl font-bold mb-6">{t('contact.letsTalk')}</h3>
               <p className="text-gray-400 leading-relaxed mb-8">
-                I'm always open to discussing new projects, creative ideas, or opportunities 
-                to be part of your vision. Feel free to reach out!
+                {t('contact.letsTalkDesc')}
               </p>
             </div>
 
@@ -151,7 +152,7 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="glass-effect rounded-2xl p-8 space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Your Name
+                  {t('contact.yourName')}
                 </label>
                 <input
                   type="text"
@@ -161,13 +162,13 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:outline-none focus:border-primary-500 transition-colors text-white"
-                  placeholder="John Doe"
+                  placeholder={t('contact.namePlaceholder')}
                 />
               </div>
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Your Email
+                  {t('contact.yourEmail')}
                 </label>
                 <input
                   type="email"
@@ -177,13 +178,13 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:outline-none focus:border-primary-500 transition-colors text-white"
-                  placeholder="john@example.com"
+                  placeholder={t('contact.emailPlaceholder')}
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Your Message
+                  {t('contact.yourMessage')}
                 </label>
                 <textarea
                   id="message"
@@ -193,28 +194,28 @@ const Contact = () => {
                   required
                   rows="5"
                   className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg focus:outline-none focus:border-primary-500 transition-colors text-white resize-none"
-                  placeholder="Tell me about your project..."
+                  placeholder={t('contact.messagePlaceholder')}
                 />
               </div>
 
               {submitStatus === 'success' && (
                 <div className="p-4 bg-green-500/20 border border-green-500 rounded-lg text-green-400 text-center">
-                  ✓ Message sent successfully! I'll get back to you soon.
+                  {t('contact.successMessage')}
                 </div>
               )}
 
               {submitStatus === 'error' && (
                 <div className="p-4 bg-red-500/20 border border-red-500 rounded-lg text-red-400 text-center">
-                  ✗ Failed to send message. Please try again or email me directly.
+                  {t('contact.errorMessage')}
                 </div>
               )}
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-8 py-3 bg-gradient-to-r from-primary-500 to-purple-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-primary-500/50 transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-8 py-3 bg-gradient-to-r from-primary-500 to-primary-700 rounded-lg font-semibold hover:shadow-lg hover:shadow-primary-500/50 transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? t('contact.sending') : t('contact.sendMessage')}
                 <Send size={18} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </form>

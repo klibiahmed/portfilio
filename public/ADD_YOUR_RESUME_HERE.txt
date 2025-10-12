@@ -1,0 +1,18 @@
+📄 RESUME SETUP INSTRUCTIONS
+================================
+
+To enable the "Download Resume" button on your portfolio:
+
+1. Add your resume PDF file to this folder (public/)
+2. Name it: resume.pdf
+3. That's it! The button will work automatically.
+
+Example:
+  c:\Users\Ahmed\Desktop\Portfolio\public\resume.pdf
+
+The button is located in the Hero section, right below your description.
+
+For more details, see: RESUME_SETUP.md in the root folder.
+
+---
+Note: You can delete this file after adding your resume.

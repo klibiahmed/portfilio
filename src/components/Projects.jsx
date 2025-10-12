@@ -1,43 +1,37 @@
 import { motion } from 'framer-motion'
 import { ExternalLink, Github } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Projects = () => {
+  const { t } = useTranslation()
+  
   const projects = [
     {
-      title: 'Goutina Mobile App - HackMingle Hackathon',
-      description: 'Prototype mobile app for Goutina, a local pastry shop in Ben Arous. Developed as part of the HackMingle Developer Student Club hackathon. Features include product browsing, ordering system, and user-friendly interface.',
+      title: t('projects.project1Title'),
+      description: t('projects.project1Desc'),
       image: 'https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=800&h=600&fit=crop',
       tags: ['Figma', 'UI/UX Design', 'Mobile Design', 'Prototyping'],
-      github: 'https://github.com/klibiahmed',
+      github: 'https://github.com/klibiahmed/Goutina',
       demo: '#',
-      period: '2023-2024',
+      period: t('projects.project1Period'),
     },
     {
-      title: 'No More Slavery (NMS) Platform - ISIMA Hackathon',
-      description: 'Complete UI/UX design and user experience for the No More Slavery platform. Created intuitive interface with modern design, including welcome page, donations, news feed, chat, and partner organizations management.',
+      title: t('projects.project2Title'),
+      description: t('projects.project2Desc'),
       image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&h=600&fit=crop',
       tags: ['Figma', 'UI/UX Design', 'Wireframes', 'React.js', 'Adobe Photoshop'],
-      github: 'https://github.com/klibiahmed',
+      github: 'https://github.com/klibiahmed/NMS-Platform',
       demo: '#',
-      period: '2024-2025',
+      period: t('projects.project2Period'),
     },
     {
-      title: 'BoomPlan - Event Reservation Platform',
-      description: 'Full-stack online event reservation platform. Led team as Scrum Master (5 sprints) for development. Implemented REST APIs, reservation logic, real-time conflict management, and admin dashboard with role validation.',
+      title: t('projects.project3Title'),
+      description: t('projects.project3Desc'),
       image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop',
       tags: ['MERN Stack', 'Node.js', 'Express.js', 'MongoDB', 'React.js', 'Tailwind CSS'],
-      github: 'https://github.com/klibiahmed',
+      github: 'https://github.com/klibiahmed/BoomPlan',
       demo: '#',
-      period: '2023-2025',
-    },
-    {
-      title: 'Microsoft ISIMA Club Activities',
-      description: 'Active member participating in hackathons, tech events, and community building. Contributing to programming education and fostering a collaborative tech environment.',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop',
-      tags: ['Community', 'Hackathons', 'Teamwork', 'Leadership'],
-      github: 'https://github.com/klibiahmed',
-      demo: '#',
-      period: 'Ongoing',
+      period: t('projects.project3Period'),
     },
   ]
 
@@ -52,10 +46,10 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Featured <span className="text-gradient">Projects</span>
+            {t('projects.title')} <span className="text-gradient">{t('projects.titleHighlight')}</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            A selection of my recent work showcasing my skills and creativity
+            {t('projects.subtitle')}
           </p>
         </motion.div>
 
@@ -108,7 +102,7 @@ const Projects = () => {
                     className="flex items-center gap-2 text-gray-300 hover:text-primary-400 transition-colors"
                   >
                     <Github size={18} />
-                    <span className="text-sm">Code</span>
+                    <span className="text-sm">{t('projects.code')}</span>
                   </a>
                   <a
                     href={project.demo}
@@ -117,7 +111,7 @@ const Projects = () => {
                     className="flex items-center gap-2 text-gray-300 hover:text-primary-400 transition-colors"
                   >
                     <ExternalLink size={18} />
-                    <span className="text-sm">Demo</span>
+                    <span className="text-sm">{t('projects.demo')}</span>
                   </a>
                 </div>
               </div>
