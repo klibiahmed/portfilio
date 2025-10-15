@@ -76,7 +76,10 @@
     "project2Period": "2024-2025",
     "project3Title": "BoomPlan - Plateforme de Réservation d'Événements",
     "project3Desc": "Plateforme de réservation d'événements en ligne full-stack. Direction de l'équipe en tant que Scrum Master (5 sprints) pour le développement. Mise en œuvre d'API REST, logique de réservation, gestion des conflits en temps réel et tableau de bord administrateur avec validation des rôles.",
-    "project3Period": "2023-2025"
+    "project3Period": "2023-2025",
+    "project4Title": "Application CRUD - PHP & MySQL",
+    "project4Desc": "Application web CRUD complète (Créer, Lire, Mettre à jour, Supprimer) construite avec PHP et MySQL. Les fonctionnalités incluent la gestion des utilisateurs, validation des données, design responsive avec Bootstrap et opérations de base de données sécurisées.",
+    "project4Period": "2024"
   },
   "testimonials": {
     "title": "Ce Que Les Gens",

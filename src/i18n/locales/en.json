@@ -76,7 +76,10 @@
     "project2Period": "2024-2025",
     "project3Title": "BoomPlan - Event Reservation Platform",
     "project3Desc": "Full-stack online event reservation platform. Led team as Scrum Master (5 sprints) for development. Implemented REST APIs, reservation logic, real-time conflict management, and admin dashboard with role validation.",
-    "project3Period": "2023-2025"
+    "project3Period": "2023-2025",
+    "project4Title": "CRUD Application - PHP & MySQL",
+    "project4Desc": "Full CRUD (Create, Read, Update, Delete) web application built with PHP and MySQL. Features include user management, data validation, responsive design with Bootstrap, and secure database operations.",
+    "project4Period": "2024"
   },
   "testimonials": {
     "title": "What People",
