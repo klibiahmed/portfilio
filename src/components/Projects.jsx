@@ -72,16 +72,14 @@ const Projects = () => {
     {
       title: t('projects.project5Title'),
       description: t('projects.project5Desc'),
-      image: '/projects/portfolio/hero.png',
+      image: '/projects/portfolio/Screenshot 2025-10-16 001131.png',
       tags: ['React.js', 'Vite', 'Tailwind CSS', 'Framer Motion', 'i18n', 'EmailJS'],
       github: 'https://github.com/klibiahmed/portfilio',
       period: t('projects.project5Period'),
       screenshots: [
-        '/projects/portfolio/hero.png',
-        '/projects/portfolio/about.png',
-        '/projects/portfolio/skills.png',
-        '/projects/portfolio/projects.png',
-        '/projects/portfolio/contact.png',
+        '/projects/portfolio/Screenshot 2025-10-16 001131.png',
+        '/projects/portfolio/Screenshot 2025-10-16 001147.png',
+        '/projects/portfolio/Screenshot 2025-10-16 001157.png',
       ]
     },
   ]
