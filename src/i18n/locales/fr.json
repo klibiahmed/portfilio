@@ -79,7 +79,10 @@
     "project3Period": "2023-2025",
     "project4Title": "Application CRUD - PHP & MySQL",
     "project4Desc": "Application web CRUD complète (Créer, Lire, Mettre à jour, Supprimer) construite avec PHP et MySQL. Les fonctionnalités incluent la gestion des utilisateurs, validation des données, design responsive avec Bootstrap et opérations de base de données sécurisées.",
-    "project4Period": "2024"
+    "project4Period": "2024",
+    "project5Title": "Site Web Portfolio Personnel",
+    "project5Desc": "Site web portfolio moderne et responsive construit avec React.js, Vite et Tailwind CSS. Fonctionnalités incluant support bilingue (Anglais/Français), UI animée avec Framer Motion, vitrine de projets avec galeries d'images, formulaire de contact avec intégration EmailJS, et thème sombre avec accents rouges.",
+    "project5Period": "2024-2025"
   },
   "testimonials": {
     "title": "Ce Que Les Gens",

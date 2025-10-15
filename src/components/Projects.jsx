@@ -69,6 +69,21 @@ const Projects = () => {
         '/projects/crud/Screenshot 2025-10-15 204707.png',
       ]
     },
+    {
+      title: t('projects.project5Title'),
+      description: t('projects.project5Desc'),
+      image: '/projects/portfolio/hero.png',
+      tags: ['React.js', 'Vite', 'Tailwind CSS', 'Framer Motion', 'i18n', 'EmailJS'],
+      github: 'https://github.com/klibiahmed/portfilio',
+      period: t('projects.project5Period'),
+      screenshots: [
+        '/projects/portfolio/hero.png',
+        '/projects/portfolio/about.png',
+        '/projects/portfolio/skills.png',
+        '/projects/portfolio/projects.png',
+        '/projects/portfolio/contact.png',
+      ]
+    },
   ]
 
   const openModal = (project) => {

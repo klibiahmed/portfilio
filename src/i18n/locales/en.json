@@ -79,7 +79,10 @@
     "project3Period": "2023-2025",
     "project4Title": "CRUD Application - PHP & MySQL",
     "project4Desc": "Full CRUD (Create, Read, Update, Delete) web application built with PHP and MySQL. Features include user management, data validation, responsive design with Bootstrap, and secure database operations.",
-    "project4Period": "2024"
+    "project4Period": "2024",
+    "project5Title": "Personal Portfolio Website",
+    "project5Desc": "Modern, responsive portfolio website built with React.js, Vite, and Tailwind CSS. Features bilingual support (English/French), animated UI with Framer Motion, project showcase with image galleries, contact form with EmailJS integration, and dark theme with red accents.",
+    "project5Period": "2024-2025"
   },
   "testimonials": {
     "title": "What People",
